@@ -1,0 +1,16 @@
+<h1>All Lists</h1>
+
+<%= link_to 'Create New List', new_list_path, class: 'btn btn-primary' %>
+
+<% if @lists.any? %>
+  <ul>
+    <% @lists.each do |list| %>
+      <li>
+        <h2><%= link_to list.name, list_path(list) %></h2>
+        <%= link_to 'Delete List', list_path(list), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No lists available. Start by creating a new list!</p>
+<% end %>
