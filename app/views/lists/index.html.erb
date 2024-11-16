@@ -2,19 +2,45 @@
 
 <%= render "banner" %>
 
-<h1>All Lists</h1>
 
-<%= link_to 'Create New List', new_list_path, class: 'btn btn-primary' %>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1>My Lists</h1>
 
-<% if @lists.any? %>
-  <ul>
-    <% @lists.each do |list| %>
-      <li>
-        <h2><%= link_to list.name, list_path(list) %></h2>
-        <%= link_to 'Delete List', list_path(list), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No lists available. Start by creating a new list!</p>
-<% end %>
+  </div>
+  </div>
+
+    <div class="container py-6">
+
+      <div class="cards">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          Breakfast
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+          Lunch
+        </div>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+          Dinner
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row">
+  <% if @lists.any? %>
+    <ul>
+      <% @lists.each do |list| %>
+        <li>
+          <h2><%= link_to list.name, list_path(list) %></h2>
+          <%= link_to 'Delete List', list_path(list), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No lists available. Start by creating a new list!</p>
+  <% end %>
+</div>
+</div>
